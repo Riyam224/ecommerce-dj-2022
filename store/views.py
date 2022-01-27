@@ -58,3 +58,14 @@ def updateCart(request):
     
 
     return JsonResponse("Cart Updated", safe = False)
+
+
+
+def updateQuantity(request):
+    data = json.loads(request.body)
+    quantityFieldValue = data['qfv']
+    quantityFieldProduct = data['qfp']
+    product = Cartitems.objects.filter(product__name = quantityFieldProduct).last()
+    product.quantity = quantityFieldValue
+    product.save()
+    return JsonResponse("Quantity updated", safe = False)

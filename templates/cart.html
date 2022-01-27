@@ -19,7 +19,10 @@
             <td></td>
             <td><h3><strong>Total: ${{cart.get_cart_total|floatformat:2}}</strong></h3></td>
             <!-- <td></td> -->
-            <td><button type="button" class="btn btn-primary btn-lg">Checkout →</button></td>
+            <td>
+              <a href="{% url 'checkout' %}"><button type="button" class="btn btn-primary btn-lg"> Checkout →</button>
+              </button></a>
+          </td>
           </tr>
           
         </tbody>
